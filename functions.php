@@ -21,7 +21,9 @@ add_action( 'after_setup_theme', 'mytheme_setup' );
 
 // スタイル・スクリプト読み込み
 function mytheme_scripts() {
-    wp_enqueue_style( 'mytheme-style', get_stylesheet_uri(), array(), wp_get_theme()->get('Version') );
+    // Google Fonts (Inter)
+    wp_enqueue_style( 'mytheme-google-fonts', 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap', array(), null );
+    wp_enqueue_style( 'mytheme-style', get_stylesheet_uri(), array( 'mytheme-google-fonts' ), wp_get_theme()->get('Version') );
 }
 add_action( 'wp_enqueue_scripts', 'mytheme_scripts' );
 
